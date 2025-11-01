@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="light bg-background-light dark:bg-background-dark" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Análisis de Datos - Troubleshooterz</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4f46e5",
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f1823",
+                        "text-light": "#0d141c",
+                        "text-dark": "#f5f7f8",
+                        "subtle-light": "#f5f7f8",
+                        "subtle-dark": "#1f2937",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+        
+        /* --- Animación de Luces (Glassmorphism) --- */
+        @keyframes moveBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(60vw, -30vh) scale(1.2); }
+            50% { transform: translate(30vw, 50vh) scale(0.8); }
+            75% { transform: translate(-20vw, 70vh) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        
+        .blob-1, .blob-2, .blob-3 { 
+            position: absolute;
+            border-radius: 9999px; /* full */
+            filter: blur(80px); /* Desenfoque extremo */
+            opacity: 0.4; 
+            animation: moveBlob 25s infinite alternate;
+        }
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background-color: #4f46e5;
+            top: 10vh;
+            left: 10vw;
+        }
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background-color: #0f1823;
+            top: 60vh;
+            left: 70vw;
+            animation-duration: 30s; 
+            animation-delay: -5s; 
+        }
+        .blob-3 {
+            width: 450px;
+            height: 450px;
+            background-color: #4ec9e2;
+            top: 50vh;
+            left: 2vw;
+            animation-duration: 45s; 
+            animation-delay: -5s;
+            opacity: 0.3; 
+        }
+    </style>
+</head>
+<body class="font-display text-text-light dark:text-text-dark"> 
+    
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+        <div class="blob-3"></div>
+    </div>
+
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="flex flex-1 justify-center">
+                <div class="layout-content-container flex flex-col w-full max-w-5xl px-4 md:px-8 py-5">
+                    
+                    <header class="flex items-center justify-between whitespace-nowrap border-b border-border-light/50 dark:border-border-dark/50 px-2 md:px-6 py-4 
+                                   sticky top-4 z-50 rounded-xl 
+                                   bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md shadow-lg">
+                        <a href="index.html" class="flex items-center gap-4 text-text-light dark:text-text-dark">
+                            <div class="size-6 text-primary">
+                                <span class="material-symbols-outlined !text-3xl">hub</span>
+                            </div>
+                            <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Troubleshooterz</h2>
+                        </a>
+                        <div class="hidden md:flex flex-1 justify-end gap-8">
+                            <div class="flex items-center gap-9">
+                                <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="index.html#expertise">Servicios</a>
+                                <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="sobre-nosotros.html">Sobre Nosotros</a>
+                                <a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="contacto.html">Contacto</a>
+                            </div>
+                            <a href="contacto.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+                                <span class="truncate">Obtener Cotización</span>
+                            </a>
+                        </div>
+                        <button class="md:hidden p-2 rounded-lg hover:bg-subtle-light dark:hover:bg-subtle-dark">
+                            <span class="material-symbols-outlined">menu</span>
+                        </button>
+                    </header>
+                    <main class="mt-4">
+                        
+                        <div class="w-full text-center py-20 md:py-28 px-4 
+                                    rounded-xl bg-background-light/30 dark:bg-background-dark/30 backdrop-blur-sm">
+                            <div class="flex flex-col gap-6 items-center">
+                                <div class="text-primary">
+                                    <span class="material-symbols-outlined !text-6xl">data_exploration</span>
+                                </div>
+                                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tighter max-w-3xl">
+                                    Análisis de Datos (Business Intelligence)
+                                </h1>
+                                <p class="text-lg md:text-xl font-normal text-gray-600 dark:text-gray-400 max-w-2xl">
+                                    Usamos datos para descubrir insights, informar estrategias y tomar decisiones inteligentes.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 md:mt-16 p-6 md:p-10 rounded-xl 
+                                    bg-subtle-light/80 dark:bg-subtle-dark/80 backdrop-blur-md 
+                                    border border-border-light/40 dark:border-border-dark/40">
+                            
+                            <h2 class="text-3xl font-bold tracking-tight">¿Qué implica el Análisis de Datos?</h2>
+                            <p class="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+                                Tu negocio genera una enorme cantidad de datos todos los días: de ventas, de marketing, de operaciones, de finanzas. El Análisis de Datos y la Inteligencia de Negocio (BI) consisten en recolectar esos datos, limpiarlos, organizarlos y transformarlos en respuestas claras a tus preguntas más importantes.
+                            </p>
+                            <p class="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+                                Nosotros te ayudamos a dejar de "intuir" y empezar a "saber". Construimos los pipelines de datos (ETL) y creamos dashboards interactivos (en herramientas como Power BI, Looker Studio o Tableau) que te muestran tus KPIs en tiempo real. Respondemos preguntas como: ¿Qué clientes son más rentables? ¿Dónde está el cuello de botella en mi embudo de ventas? ¿Qué campaña de marketing generó el mejor ROI?
+                            </p>
+
+                            <h3 class="text-2xl font-bold tracking-tight mt-10">Beneficios Clave</h3>
+                            <ul class="mt-6 space-y-4">
+                                <li class="flex gap-3">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <span class="text-gray-600 dark:text-gray-400">**Decisiones Informadas:** Reemplaza la intuición y las hojas de cálculo obsoletas con datos en vivo.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <span class="text-gray-600 dark:text-gray-400">**Una Única Fuente de Verdad:** Unimos tus datos de múltiples fuentes en un solo lugar confiable.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <span class="text-gray-600 dark:text-gray-400">**Descubrimiento de Oportunidades:** Encontramos tendencias y patrones ocultos que revelan nuevas oportunidades de negocio.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <span class="text-gray-600 dark:text-gray-400">**Monitoreo de KPIs:** Todos en tu equipo ven las mismas métricas de éxito, en tiempo real.</span>
+                                </li>
+                            </ul>
+
+                            <h3 class="text-2xl font-bold tracking-tight mt-10">Nuestro Proceso</h3>
+                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                                <div class="p-4 rounded-lg bg-background-light dark:bg-background-dark shadow-inner">
+                                    <h4 class="font-bold text-lg text-primary">1. Extracción y Carga (ETL)</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Definimos tus fuentes de datos y las conectamos a un almacén central (data warehouse).</p>
+                                </div>
+                                <div class="p-4 rounded-lg bg-background-light dark:bg-background-dark shadow-inner">
+                                    <h4 class="font-bold text-lg text-primary">2. Modelado y Visualización</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Transformamos los datos crudos en métricas y construimos los dashboards interactivos.</p>
+                                </div>
+                                <div class="p-4 rounded-lg bg-background-light dark:bg-background-dark shadow-inner">
+                                    <h4 class="font-bold text-lg text-primary">3. Análisis e Insights</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Te ayudamos a interpretar los tableros y a extraer conclusiones accionables.</p>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div class="w-full text-center py-20 md:py-24 px-4 mt-16
+                                    rounded-xl bg-background-light/30 dark:bg-background-dark/30 backdrop-blur-sm">
+                            <div class="flex flex-col gap-6 items-center">
+                                <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em]">
+                                    ¿Tomas decisiones a ciegas?
+                                </h2>
+                                <a href="contacto.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+                                    <span class="truncate">Agendar Consulta Gratuita</span>
+                                </a>
+                                <a href="index.html#expertise" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                                    Volver a todos los servicios
+                                </a>
+                            </div>
+                        </div>
+
+                    </main>
+                    <footer class="flex flex-col gap-8 px-5 py-16 text-center mt-20 border-t border-border-light/50 dark:border-border-dark/50
+                                   rounded-t-xl bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+                        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+                            <a class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="index.html">Inicio</a>
+                            <a class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="index.html#expertise">Servicios</a>
+                            <a class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="sobre-nosotros.html">Sobre Nosotros</a>
+                            <a class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="contacto.html">Contacto</a>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">
+                                <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+                                    <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">© 2024 Troubleshooterz. Todos los derechos reservados.</p>
+                    </footer>
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
